@@ -1,4 +1,3 @@
-
 #include <climits>
 #include "../inc/MotorContainer.h"
 #include "../inc/GenericMotor.h"

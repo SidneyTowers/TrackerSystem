@@ -7,4 +7,12 @@
 
 #include "../inc/GenericMotor.h"
 
-// NOTE: abstract class has no methods that need to be implemented - consider removing
+// Returns the position of the motor.
+int getPosition() {
+	return Position;
+}
+
+// Sets the position of the motor to the requested position.
+void setPosition(int position) {
+	this->Position = position;
+}

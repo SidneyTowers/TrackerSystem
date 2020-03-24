@@ -13,14 +13,18 @@
 class GenericMotor {
 public:
 	// Returns the position of the motor.
-	virtual int getPosition() = 0;
+	int getPosition();
 
 	// Sets the position of the motor to the requested position.
-	virtual void setPosition(int position) = 0;
+	void setPosition(int position);
+	
+	// This function actually updates the motor. It should be called every cycle.
+	virtual void update() = 0;
 
 protected:
 	// 
 	int Position;
+	int pin;
 };
 
 #endif // _GENERIC_MOTOR_H_

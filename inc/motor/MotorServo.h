@@ -14,11 +14,10 @@
 //  to move the physical InputDevice.
 class MotorServo: public GenericMotor {
   public:
-	// Returns the position of the motor.
-	int getPosition();
+	// Creates a servo instance
+	MotorServo(int pin);
 	
-	// Sets the position of the motor to the requested position.
-	void setPosition(int New);
+	void update();
 };
 
 #endif // _MOTOR_SERVO_H_

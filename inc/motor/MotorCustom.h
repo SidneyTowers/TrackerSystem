@@ -14,11 +14,7 @@
 //  to move the physical InputDevice.
 class MotorCustom : public GenericMotor {
 public:
-	// Returns the position of the motor.
-	int getPosition();
-
-	// Sets the position of the motor to the requested position.
-	void setPosition(int New);
+	void update();
 };
 
 #endif // _MOTOR_CUSTOM_H_

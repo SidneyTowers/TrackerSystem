@@ -7,13 +7,6 @@
 
 #include <iostream>
 
-int MotorStepper::getPosition() {
+void MotorStepper::update() {
 	// method stub
-	std::cout << "MotorCustom getPosition() = " << Position << std::endl;
-}
-
-void MotorStepper::setPosition(int New) {
-	// method stub
-	std::cout << "MotorStepper Set" << std::endl;
-	Position = New;
 }

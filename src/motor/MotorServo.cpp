@@ -8,14 +8,20 @@
 #include <iostream>
 #include "../inc/MotorServo.h"
 
-int MotorServo::getPosition() {
-	// method stub
-	std::cout << "MotorCustom getPosition() = " << Position << std::endl;
+#define MOTOR_SERVO_MIN_POSITION (0)
+#define MOTOR_SERVO_MAX_POSITION (100)
+
+MotorServo::MotorServo(int pin) {
+	this->pin = pin;
+	
+	softPwmCreate(pin, MOTOR_SERVO_MIN_POSITION, MOTOR_SERVO_MAX_POSITION);
 }
 
-void MotorServo::setPosition(int New) {
-	// method stub
-	// method stub
-	std::cout << "MotorCustom set (old = " << Position << ") ";
-	Position = New;
+void MotorServo::update() {
+    if(Position > MOTOR_SERVO_MAX_POSITION)
+        Position = MOTOR_SERVO_MAX_POSITION;
+    if(Position < MOTOR_SERVO_MIN_POSITION)
+        Position = MOTOR_SERVO_MIN_POSITION;
+	
+	softPWMWrite(pin, Position);
 }
