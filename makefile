@@ -1,33 +1,40 @@
-############################################################
-#	 Makefile for TrackerSystem creation simplification    #
-#                  author: Sidney Towers                   #
-############################################################
+#--------------------------------------------------------------#
+#	   Makefile for TrackerSystem creation simplification      #
+#--------------------------------------------------------------#
 
-IDIR = .
-CC = g++
-CFLAGS = -I$(IDIR)
+COMPILER = g++
 
-# cannot seem to get it to store .o files within another folder
-ODIR = .
-LDIR = .
+FLTK_FLAGS = -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -fvisibility-inlines-hidden -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -lfltk -lX11 -lfltk_images
 
-LIBS = 
+OPENCV_FLAGS = -I/usr/include/opencv -lopencv_shape -lopencv_stitching -lopencv_superres -lopencv_videostab -lopencv_aruco -lopencv_bgsegm -lopencv_bioinspired -lopencv_ccalib -lopencv_datasets -lopencv_dpm -lopencv_face -lopencv_freetype -lopencv_fuzzy -lopencv_hdf -lopencv_line_descriptor -lopencv_optflow -lopencv_video -lopencv_plot -lopencv_reg -lopencv_saliency -lopencv_stereo -lopencv_structured_light -lopencv_phase_unwrapping -lopencv_rgbd -lopencv_viz -lopencv_surface_matching -lopencv_text -lopencv_ximgproc -lopencv_calib3d -lopencv_features2d -lopencv_flann -lopencv_xobjdetect -lopencv_objdetect -lopencv_ml -lopencv_xphoto -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_photo -lopencv_imgproc -lopencv_core
 
-_DEPS = GenericMotor.h SessionParameters.h TrackerSession.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+COMPILER_FLAGS = -I$(HEADER_DIRECTORY) $(OPENCV_FLAGS) $(FLTK_FLAGS)
 
-_OBJ = Starter.o Camera.o Display.o GenericMotor.o InputDevice.o InputDeviceSignal.o Microphone.o MotorAC.o MotorContainer.o MotorCustom.o MotorDC.o MotorDisk.o MotorServo.o MotorStepper.o Pixel.o SessionParameters.o SoundWave.o TrackerSession.o UserInterface.o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+HEADER_DIRECTORY = ./Headers
+LIBRARY_DIRECTORY = .
+SOURCE_DIRECTORY = ./Sources
 
-$(ODIR)/%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+LIBRARIES = 
+
+SUB_HEADERS = Motors/GenericMotor.h SessionParameters.h TrackerSession.h
+HEADERS = $(patsubst %,$(HEADER_DIRECTORY)/%,$(SUB_HEADERS))
+
+SUB_SOURCES = Main.o HardwareInputs/Camera.o HardwareInputs/Display.o Motors/GenericMotor.o HardwareInputs/InputDevice.o HardwareInputs/InputDeviceSignal.o HardwareInputs/Microphone.o Motors/MotorAC.o Motors/MotorContainer.o Motors/MotorCustom.o Motors/MotorDC.o Motors/MotorDisk.o Motors/MotorServo.o Motors/MotorStepper.o HardwareInputs/Pixel.o SessionParameters.o HardwareInputs/SoundWave.o TrackerSession.o UserInterface/UserInterface.o
+SOURCES = $(patsubst %,$(SOURCE_DIRECTORY)/%,$(SUB_SOURCES))
+
+$(SOURCE_DIRECTORY)/%.o: %.c $(HEADERS)
+	$(COMPILER) -c -o $@ $< $(COMPILER_FLAGS)
 
 # remove make clean statement as to keep .o files
-TrackerSystem: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+TrackerSystem: $(SOURCES)
+	$(COMPILER) -o $@ $^ $(COMPILER_FLAGS) $(LIBRARIES)
 	make clean
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
+	rm -f $(SOURCE_DIRECTORY)/*.o *~ core $(INCDIR)/*~
+	rm -f $(SOURCE_DIRECTORY)/HardwareInputs/*.o *~ core $(INCDIR)/*~
+	rm -f $(SOURCE_DIRECTORY)/Motors/*.o *~ core $(INCDIR)/*~
+	rm -f $(SOURCE_DIRECTORY)/UserInterface/*.o *~ core $(INCDIR)/*~
+
