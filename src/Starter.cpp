@@ -5,6 +5,7 @@
 | Febuary 18, 2020      Created document framework.                            |
 \*----------------------------------------------------------------------------*/
 
+#include <wiringpi.h>
 #include "UserInterface.cpp"
 #include "TrackerSession.h"
 #include "SessionParameters.h"
