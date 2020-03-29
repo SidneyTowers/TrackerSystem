@@ -17,4 +17,10 @@ MakeAll:
 	cd /opt/opencv/release && make install
 	cd /opt/opencv/release && ldconfig
 	pkg-config --modversion opencv
+	
+	# wiringPi Installation
+	sudo apt-get install git git-core
+	git clone git://git.drogon.net/wiringPi
+	cd wiringPi
+	./build
 
