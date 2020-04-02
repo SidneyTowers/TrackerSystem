@@ -2,3 +2,7 @@
 Requires both OpenCV and FLTK to be built: make -f makeDependencies threads=# with # being replaced by a thread amount no more than your processor's amount
 	Afterwards, if all goes perfectly, just run make
 
+
+Note: if you are having trouble with libfaac-dev, then run this line of code:
+sudo sed -i "$ a\deb http://ftp.de.debian.org/debian jessie main non-free" /etc/apt/sources.list
+It will add a source that apt will look at.

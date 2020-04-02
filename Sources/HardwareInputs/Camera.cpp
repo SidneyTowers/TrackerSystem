@@ -8,10 +8,10 @@
 #include <iostream>
 #include <FL/Fl_Image.H>
 #include <FL/Fl_PNG_Image.H>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include "../../Headers/HardwareInputs/Camera.h"
-#include "opencv2/opencv.hpp"
-#include "opencv2/core/core.hpp"
-#include "opencv2/highgui/highgui.hpp"
 
 // Laziness for both the Camera class' namespace (which was needed to avoid a
 //     namespace ambiguity issue) and the OpenCV general namespace
