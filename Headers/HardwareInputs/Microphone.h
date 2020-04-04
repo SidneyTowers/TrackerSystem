@@ -7,7 +7,7 @@
 
 #ifndef _MICROPHONE_H_
 #define _MICROPHONE_H_
-#pragma once
+
 
 #include <iostream>
 #include "./InputDevice.h"
