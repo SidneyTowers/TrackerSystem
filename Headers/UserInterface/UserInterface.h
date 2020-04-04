@@ -7,20 +7,20 @@
 
 #ifndef _USER_INTERFACE_H_
 #define _USER_INTERFACE_H_
-#pragma once
+
 
 #include <vector>
 #include <cstdint>
-#include <FL/Fl.H>
-#include <FL/Fl_Widget.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Group.H>
+// #include <FL/Fl.H>
+// #include <FL/Fl_Widget.H>
+// #include <FL/Fl_Window.H>
+// #include <FL/Fl_Button.H>
+// #include <FL/Fl_Group.H>
 #include "../SessionParameters.h"
 #include "../TrackerSession.h"
 
 // The user interface for the current program
-class UserInterface {
+class UserInterface {/*
 public:
 	// 
 	UserInterface(SessionParameters * GlobalParams, TrackerSession ** GlobalTracker);
@@ -36,7 +36,7 @@ protected:
 	struct AnimData {
 		float AnimDeltaTime = 0;
 		float WantedAnimTime = 1.0;
-		Fl_Widget * AnimTarget = nullptr;
+		// Fl_Widget * AnimTarget = nullptr;
 		int WantedX = 0;
 		int WantedY = 0;
 		int WantedWidth = 0;
@@ -103,7 +103,7 @@ protected:
 	void one();
 
 	// 
-	void two(std::string CommandIn);
+	void two(std::string CommandIn);*/
 };
 
 #endif // _USER_INTERFACE_H_

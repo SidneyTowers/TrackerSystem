@@ -3,12 +3,12 @@
 //  Chapter 16 Exercise 7
  
 #define _USE_MATH_DEFINES
-#include "Fl/Fl_Window.H"
-#include "Fl/Graph.h"
+// #include "Fl/Fl_Window.H"
+// #include "Fl/Graph.h"
 #include <cmath>
 #include "GUI.h"
 #include <time.h>
- 
+ /*
 // layout
 constexpr int xmax = 400;
 constexpr int ymax = 400;
@@ -155,3 +155,4 @@ catch (...) {
     keep_window_open();
     return 2;
 }
+*/

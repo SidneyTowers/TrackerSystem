@@ -7,7 +7,7 @@
 
 #ifndef _DISPLAY_H_
 #define _DISPLAY_H_
-#pragma once
+
 
 #include <vector>
 #include <cstdint>

@@ -1,9 +1,9 @@
 #include <iostream>
-#include "opencv2/opencv.hpp"
+// #include "opencv2/opencv.hpp"
 
-using namespace cv;
+// using namespace cv;
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) {/*
     std::cout << "Program start:\n";
     VideoCapture Capture;
     // open the default camera, use something different from 0 otherwise;
@@ -20,5 +20,5 @@ int main(int argc, char** argv) {
     }
     // the camera will be closed automatically upon exit
     std::cout << "Program ran successfully\n";
-    return 0;
+    return 0;*/
 }

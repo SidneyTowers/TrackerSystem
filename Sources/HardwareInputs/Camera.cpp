@@ -6,17 +6,17 @@
 \*----------------------------------------------------------------------------*/
 
 #include <iostream>
-#include <FL/Fl_Image.H>
-#include <FL/Fl_PNG_Image.H>
-#include <opencv2/opencv.hpp>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
+// #include <FL/Fl_Image.H>
+// #include <FL/Fl_PNG_Image.H>
+// #include <opencv2/opencv.hpp>
+// #include <opencv2/core/core.hpp>
+// #include <opencv2/highgui/highgui.hpp>
 #include "../../Headers/HardwareInputs/Camera.h"
 
 // Laziness for both the Camera class' namespace (which was needed to avoid a
 //     namespace ambiguity issue) and the OpenCV general namespace
-using namespace cv;
-using namespace Cam;
+// using namespace cv;
+// using namespace Cam;
 
 // Constructor for Camera class
 Camera::Camera() : InputDevice(DeviceType::Camera) {
@@ -26,9 +26,9 @@ Camera::Camera() : InputDevice(DeviceType::Camera) {
 // Returns the amount of camera devices found that can be used
 unsigned char Camera::GetDeviceAmount() {
 	// Create wanted local variables
-	VideoCapture Capture;
+	// VideoCapture Capture;
 	unsigned char Count = 0;
-
+/*
 	// Loop through a max of 256 cameras for input
 	for (unsigned int i; i <=255; ++i) {
 
@@ -40,14 +40,14 @@ unsigned char Camera::GetDeviceAmount() {
 		} else {
 			++Count;
 		}
-	}
+	}*/
 
 	// Return the generated count value
 	return Count;
 }
 
 // Returns the value polled from the Camera
-void * Camera::GetValue(int Location) {
+void * Camera::GetValue(int Location) {/*
 	// 
     VideoCapture Capture;
 	Mat * Frame = new Mat();
@@ -74,6 +74,6 @@ void * Camera::GetValue(int Location) {
     std::cout << "Program ran successfully\n";
 	Fl_RGB_Image * Buffer = new Fl_RGB_Image(Frame->data, Frame->cols, Frame->rows, Frame->dims);
 	delete Frame;
-    return Buffer;
+    return Buffer;*/
 }
 

@@ -7,19 +7,19 @@
 
 #include <iostream>
 #include <string>
-#include <FL/Fl_Box.H>
-#include <FL/Fl_Tabs.H>
-#include <FL/Fl_Choice.H>
-#include <FL/Fl_Simple_Counter.H>
-#include <FL/Fl_PNG_Image.H>
-#include "opencv2/opencv.hpp"
+// #include <FL/Fl_Box.H>
+// #include <FL/Fl_Tabs.H>
+// #include <FL/Fl_Choice.H>
+// #include <FL/Fl_Simple_Counter.H>
+// #include <FL/Fl_PNG_Image.H>
+// #include "opencv2/opencv.hpp"
 #include "../../Headers/UserInterface/UserInterface.h"
 #include "../../Headers/SessionParameters.h"
 #include "../../Headers/TrackerSession.h"
 #include "../../Headers/HardwareInputs/InputDevice.h"
 #include "../../Headers/HardwareInputs/Camera.h"
 #include "../../Headers/HardwareInputs/Microphone.h"
-
+/*
 // 
 UserInterface::UserInterface(SessionParameters * GlobalParams, TrackerSession ** GlobalTracker) {
 	std::cout << "\nUser Interface class is created now\n";
@@ -298,4 +298,4 @@ void UserInterface::two(std::string CommandIn) {
 	// Update session parameters
 	//PointerToParams->UpdateSessionParameters(CommandIn);
 }
-
+*/

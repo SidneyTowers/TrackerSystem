@@ -1,0 +1,1581 @@
+# Sudo Usage Preparation
+#sudo apt-get update
+#sudo apt-get upgrade
+# FLTK Installation
+#sudo apt-get install libfltk1.3-dev libx11-dev fltk1.3-dev libxinerama1 x11proto-xinerama-dev
+# OpenCV Installation
+#sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python3.5 python3-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff5-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+#cd /opt && sudo rm -f -r opencv opencv_contrib
+#cd /opt && sudo git clone https://github.com/Itseez/opencv.git
+#cd /opt && sudo git clone https://github.com/Itseez/opencv_contrib.git
+#cd /opt/opencv && sudo mkdir release
+cd /opt/opencv/release && sudo cmake -D BUILD_TIFF=ON -D WITH_CUDA=OFF -D ENABLE_AVX=OFF -D WITH_OPENGL=OFF -D WITH_OPENCL=OFF -D WITH_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules /opt/opencv/
+-- Detected processor: armv7l
+-- Looking for ccache - not found
+-- WARNING: Option ENABLE_AVX='OFF' is deprecated and should not be used anymore
+--          Behaviour of this option is not backward compatible
+--          Refer to 'CPU_BASELINE'/'CPU_DISPATCH' CMake options documentation
+-- Found ZLIB: /usr/lib/arm-linux-gnueabihf/libz.so (found suitable version "1.2.8", minimum required is "1.2.3") 
+-- Could NOT find OpenJPEG (minimal suitable version: 2.0, recommended version >= 2.3.1)
+-- Could NOT find Jasper (missing:  JASPER_LIBRARIES JASPER_INCLUDE_DIR) 
+-- Found ZLIB: /usr/lib/arm-linux-gnueabihf/libz.so (found version "1.2.8") 
+-- Found OpenEXR: /usr/lib/arm-linux-gnueabihf/libIlmImf.so
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+-- Could NOT find Atlas (missing:  Atlas_CLAPACK_INCLUDE_DIR) 
+-- A library with BLAS API found.
+-- A library with LAPACK API found.
+-- Could NOT find JNI (missing:  JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+-- Carotene: NEON is not available, disabling carotene...
+-- OpenCV Python: during development append to PYTHONPATH: /opt/opencv/release/python_loader
+-- Module opencv_alphamat disabled because the following dependencies are not found: Eigen
+-- Caffe:   NO
+-- Protobuf:   NO
+-- Glog:   NO
+-- freetype2:   YES (ver 18.3.12)
+-- harfbuzz:    YES (ver 1.4.2)
+-- Could NOT find HDF5 (missing:  HDF5_LIBRARIES HDF5_INCLUDE_DIRS) 
+-- Module opencv_ovis disabled because OGRE3D was not found
+-- No preference for use of exported gflags CMake configuration set, and no hints for include/library directories provided. Defaulting to preferring an installed/exported gflags CMake configuration if available.
+-- Failed to find installed gflags CMake configuration, searching for gflags build directories exported with CMake.
+-- Failed to find gflags - Failed to find an installed/exported CMake configuration for gflags, will perform search for installed gflags components.
+-- Failed to find gflags - Could not find gflags include directory, set GFLAGS_INCLUDE_DIR to directory containing gflags/gflags.h
+-- Failed to find glog - Could not find glog include directory, set GLOG_INCLUDE_DIR to directory containing glog/logging.h
+-- Module opencv_sfm disabled because the following dependencies are not found: Eigen Glog/Gflags
+-- Checking for module 'tesseract'
+--   No package 'tesseract' found
+-- Tesseract:   NO
+-- Allocator metrics storage type: 'int'
+-- Excluding from source files list: modules/imgproc/src/corner.avx.cpp
+-- Excluding from source files list: modules/imgproc/src/imgwarp.avx2.cpp
+-- Excluding from source files list: modules/imgproc/src/imgwarp.sse4_1.cpp
+-- Excluding from source files list: modules/imgproc/src/resize.avx2.cpp
+-- Excluding from source files list: modules/imgproc/src/resize.sse4_1.cpp
+-- Registering hook 'INIT_MODULE_SOURCES_opencv_dnn': /opt/opencv/modules/dnn/cmake/hooks/INIT_MODULE_SOURCES_opencv_dnn.cmake
+-- opencv_dnn: filter out ocl4dnn source code
+-- opencv_dnn: filter out cuda4dnn source code
+-- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.avx.cpp
+-- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.avx2.cpp
+-- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.avx512_skx.cpp
+-- Excluding from source files list: modules/features2d/src/fast.avx2.cpp
+-- 
+-- General configuration for OpenCV 4.3.0-pre =====================================
+--   Version control:               4.2.0-572-g277f0d270f
+-- 
+--   Extra modules:
+--     Location (extra):            /opt/opencv_contrib/modules
+--     Version control (extra):     4.2.0-67-ge6f32c6a
+-- 
+--   Platform:
+--     Timestamp:                   2020-04-02T23:40:02Z
+--     Host:                        Linux 4.19.66-v7+ armv7l
+--     CMake:                       3.7.2
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:
+--       requested:                 DETECT
+--       disabled:                  AVX VFPV3 NEON
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ standard:                11
+--     C++ Compiler:                /usr/bin/c++  (ver 6.3.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-psabi -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-psabi -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-psabi -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-psabi -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--gc-sections -Wl,--as-needed  
+--     Linker flags (Debug):        -Wl,--gc-sections -Wl,--as-needed  
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dnn_superres dpm face features2d flann freetype fuzzy gapi hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor ml objdetect optflow phase_unwrapping photo plot python2 python3 quality rapid reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking video videoio videostab xfeatures2d ximgproc xobjdetect xphoto
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 alphamat cnn_3dobj cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv hdf java js matlab ovis sfm ts viz
+--     Applications:                apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.22.11)
+--       GThread :                  YES (ver 2.50.3)
+--       GtkGlExt:                  NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/arm-linux-gnueabihf/libz.so (ver 1.2.8)
+--     JPEG:                        /usr/lib/arm-linux-gnueabihf/libjpeg.so (ver 62)
+--     WEBP:                        build (ver encoder: 0x020f)
+--     PNG:                         /usr/lib/arm-linux-gnueabihf/libpng.so (ver 1.6.28)
+--     TIFF:                        build (ver 42 - 4.0.10)
+--     JPEG 2000:                   build Jasper (ver 1.900.1)
+--     OpenEXR:                     /usr/lib/arm-linux-gnueabihf/libImath.so /usr/lib/arm-linux-gnueabihf/libIlmImf.so /usr/lib/arm-linux-gnueabihf/libIex.so /usr/lib/arm-linux-gnueabihf/libHalf.so /usr/lib/arm-linux-gnueabihf/libIlmThread.so (ver 2_2)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+--     PFM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      YES (2.2.5)
+--     FFMPEG:                      YES
+--       avcodec:                   YES (57.64.101)
+--       avformat:                  YES (57.56.101)
+--       avutil:                    YES (55.34.101)
+--       swscale:                   YES (4.2.100)
+--       avresample:                YES (3.1.0)
+--     GStreamer:                   YES (1.10.4)
+-- 
+--   Parallel framework:            TBB (ver 2020.1 interface 11101)
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Lapack:                      NO
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.5.1)
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.13)
+--     Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython2.7.so (ver 2.7.13)
+--     numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.12.1)
+--     install path:                lib/python2.7/dist-packages/cv2/python-2.7
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/bin/python3 (ver 3.5.3)
+--     Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython3.5m.so (ver 3.5.3)
+--     numpy:                       /usr/lib/python3/dist-packages/numpy/core/include (ver 1.12.1)
+--     install path:                lib/python3.5/dist-packages/cv2/python-3.5
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/local
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/opencv/release
+cd /opt/opencv/release && sudo make -j
+[  0%] Built target opencv_videoio_plugins
+[  0%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/decode.c.o
+[  0%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirwrite.c.o
+[  0%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirread.c.o
+[  0%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzw.c.o
+[  0%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirinfo.c.o
+[  0%] Building C object 3rdparty/ittnotify/CMakeFiles/ittnotify.dir/src/ittnotify/ittnotify_static.c.o
+[  0%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_compress.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dir.c.o
+[  1%] Generate files for Python bindings and documentation
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_getimage.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg.c.o
+[  1%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/check_cycles.cpp.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_write.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_print.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_predict.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_aux.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_color.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_tile.c.o
+[  1%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_open.c.o
+[  1%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/alloc.cpp.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zip.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_read.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_luv.c.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/execution_engine.cpp.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_packbits.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_strip.c.o
+[  2%] Building CXX object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_stream.cxx.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/edge.cpp.o
+[  3%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/graph.cpp.o
+[  3%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_icc.c.o
+[  3%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_accessor.cpp.o
+[  3%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_seq.c.o
+[  3%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor.cpp.o
+[  3%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_cm.c.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metatypes.cpp.o
+[  3%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_image.c.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_ref.cpp.o
+[  3%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_stream.c.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_enc.c.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/passes/communications.cpp.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_cod.c.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_cs.c.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metadata.cpp.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1cod.c.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/node.cpp.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_view.cpp.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/subgraphs.cpp.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/topological_sort.cpp.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqenc.c.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_bs.c.o
+[  4%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/search.cpp.o
+[  4%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_dec.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqdec.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mct.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2cod.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_qmfb.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1dec.c.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/cache_aligned_allocator.cpp.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1enc.c.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/arena.cpp.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2dec.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tsfb.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tagtree.c.o
+[  5%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2enc.c.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_hash_map.cpp.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_queue.cpp.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_vector.cpp.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/critical_section.cpp.o
+[  5%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_monitor.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/governor.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/market.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/observer_proxy.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/itt_notify.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/dynamic_link.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/mutex.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/private_server.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_mutex.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/reader_writer_lock.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_rw_mutex.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/pipeline.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/condition_variable.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/recursive_mutex.cpp.o
+[  6%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_mutex.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/semaphore.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_main.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_rw_mutex.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/scheduler.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task_group_context.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_thread.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc_ex.cpp.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_statistics.cpp.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/frame_dec.c.o
+[  7%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/rml/client/rml_tbb.cpp.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/alpha_dec.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/io_dec.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/buffer_dec.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8_dec.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/idec_dec.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/quant_dec.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/demux.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing.c.o
+[  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8l_dec.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/anim_decode.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/tree_dec.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/webp_dec.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_sse2.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_sse2.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_mips32.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim_sse2.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_neon.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim.c.o
+[  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_mips_dsp_r2.c.o
+[  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_neon.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_msa.c.o
+[  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_msa.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_mips_dsp_r2.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse41.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_sse41.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_mips32.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse2.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_mips_dsp_r2.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_sse2.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/alpha_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_neon.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/backward_references_cost_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/analysis_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/cost_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/backward_references_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/config_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/near_lossless_enc.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/iterator_enc.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/filter_enc.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_csp_enc.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/frame_enc.c.o
+[ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/histogram_enc.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_enc.c.o
+[ 11%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_table_driven_lite.cc.o
+[ 11%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arena.cc.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_rescale_enc.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_tools_enc.c.o
+[ 11%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arenastring.cc.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_psnr_enc.c.o
+[ 11%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/message_lite.cc.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/quant_enc.c.o
+[ 11%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/bytestream.cc.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/token_enc.c.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/repeated_field.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/io_win32.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/common.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set.cc.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/syntax_enc.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/tree_enc.c.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/coded_stream.cc.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/predictor_enc.c.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_util.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/int128.cc.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/wire_format_lite.cc.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/vp8l_enc.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/thread_utils.c.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/api.pb.cc.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxedit.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxread.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/bit_reader_utils.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/random_utils.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/webp_enc.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/huffman_encode_utils.c.o
+[ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringprintf.cc.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/quant_levels_utils.c.o
+[ 14%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/any.pb.cc.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/color_cache_utils.c.o
+[ 14%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/once.cc.o
+[ 14%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringpiece.cc.o
+[ 14%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/structurally_valid.cc.o
+[ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/anim_encode.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxinternal.c.o
+[ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/time.cc.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/rescaler_utils.c.o
+[ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/filters_utils.c.o
+[ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/status.cc.o
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:110: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/frame_dec.c.o' failed
+modules/python_bindings_generator/CMakeFiles/gen_opencv_python_source.dir/build.make:347: recipe for target 'modules/python_bindings_generator/pyopencv_generated_enums.h' failed
+3rdparty/ittnotify/CMakeFiles/ittnotify.dir/build.make:62: recipe for target '3rdparty/ittnotify/CMakeFiles/ittnotify.dir/src/ittnotify/ittnotify_static.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:134: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_icc.c.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:62: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/arena.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:86: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/cache_aligned_allocator.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:110: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_hash_map.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:158: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_queue.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:182: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_vector.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:134: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_monitor.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:230: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/critical_section.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:326: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/market.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:254: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/dynamic_link.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:278: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/governor.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:302: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/itt_notify.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:422: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/private_server.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:206: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/condition_variable.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:398: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/pipeline.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:470: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_rw_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:518: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/recursive_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:374: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/observer_proxy.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:446: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:350: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:614: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_rw_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:542: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/scheduler.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:494: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/reader_writer_lock.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:590: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:566: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/semaphore.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:638: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:686: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_main.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:662: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task_group_context.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:86: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/buffer_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:158: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/io_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:206: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/tree_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:230: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:254: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8l_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:326: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/demux.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:134: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/idec_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:278: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/webp_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:350: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:470: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:254: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_seq.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:182: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_image.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:278: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_stream.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:542: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_enc.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:398: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_cod.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:494: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_cs.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:710: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1cod.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:470: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_bs.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:662: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqenc.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:590: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mct.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:518: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_dec.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:758: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1enc.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:806: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2dec.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:782: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2cod.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:686: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_qmfb.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:734: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1dec.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:830: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2enc.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:854: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tagtree.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:878: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tsfb.c.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:782: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_thread.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:710: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:734: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc_ex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:758: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_statistics.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:830: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/rml/client/rml_tbb.cpp.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:254: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirwrite.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:230: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirread.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:566: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzw.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:182: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dir.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:494: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:158: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_compress.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:350: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:710: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_predict.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:62: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_aux.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:134: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_color.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:422: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_getimage.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:950: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_write.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:638: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_open.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:854: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_tile.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:734: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_print.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:758: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_read.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:614: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:806: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:974: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1094: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1118: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1526: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1382: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1574: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1598: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1670: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1718: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1814: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1790: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1862: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/alpha_enc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:974: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zip.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:518: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_luv.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:662: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_packbits.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:782: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_strip.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:1022: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_stream.cxx.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1886: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/analysis_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1910: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/backward_references_cost_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1934: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/backward_references_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1958: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/config_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1982: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/cost_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2006: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/filter_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2078: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/iterator_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2126: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_csp_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2030: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/frame_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2054: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/histogram_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2102: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/near_lossless_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2150: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2534: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/bit_writer_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2630: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/huffman_utils.c.o' failed
+CMakeFiles/Makefile2:528: recipe for target '3rdparty/ittnotify/CMakeFiles/ittnotify.dir/all' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2654: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/quant_levels_dec_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2774: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2198: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_rescale_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2222: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_tools_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2174: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_psnr_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2270: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/quant_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2318: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/token_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2294: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/syntax_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2246: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/predictor_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2366: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/vp8l_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2390: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/webp_enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2438: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxedit.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2486: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxread.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2510: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/bit_reader_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2558: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/color_cache_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2606: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/huffman_encode_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2678: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/quant_levels_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2702: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/random_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2750: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/thread_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2462: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxinternal.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2414: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/anim_encode.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2726: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/rescaler_utils.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:2582: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/filters_utils.c.o' failed
+CMakeFiles/Makefile2:5558: recipe for target 'modules/python_bindings_generator/CMakeFiles/gen_opencv_python_source.dir/all' failed
+CMakeFiles/Makefile2:308: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/all' failed
+CMakeFiles/Makefile2:473: recipe for target '3rdparty/quirc/CMakeFiles/quirc.dir/all' failed
+CMakeFiles/Makefile2:198: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/all' failed
+CMakeFiles/Makefile2:363: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/all' failed
+CMakeFiles/Makefile2:253: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/all' failed
+modules/CMakeFiles/ade.dir/build.make:110: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/check_cycles.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:62: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/alloc.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:158: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/execution_engine.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:134: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/edge.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:182: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/graph.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:230: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:206: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_accessor.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:326: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metatypes.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:254: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_ref.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:278: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_view.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:350: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/node.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:374: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/passes/communications.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:302: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metadata.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:398: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/search.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:422: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/subgraphs.cpp.o' failed
+modules/CMakeFiles/ade.dir/build.make:446: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/topological_sort.cpp.o' failed
+CMakeFiles/Makefile2:990: recipe for target 'modules/CMakeFiles/ade.dir/all' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:134: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_table_driven_lite.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:470: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/statusor.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:566: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/strutil.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:62: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arena.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:86: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arenastring.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:206: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:254: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/message_lite.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:326: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/bytestream.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:638: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/any.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:710: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:734: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor.pb.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:110: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:182: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/coded_stream.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:230: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:278: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/repeated_field.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:302: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/atomicops_internals_x86_gcc.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:350: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/common.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:758: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor_database.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:782: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/duration.pb.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:158: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_util.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:374: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/int128.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:398: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/io_win32.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:422: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/once.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:494: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringpiece.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:518: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringprintf.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:614: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/wire_format_lite.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:662: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/any.pb.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:686: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/api.pb.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:806: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/dynamic_message.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:830: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/empty.pb.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:542: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/structurally_valid.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:446: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/status.cc.o' failed
+makeDependencies:2: recipe for target 'MakeAll' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:590: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/time.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:854: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set_heavy.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:878: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/field_mask.pb.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:902: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_reflection.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:926: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_table_driven.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:950: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/gzip_stream.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:974: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/printer.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:998: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/strtod.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:1022: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/tokenizer.cc.o' failed
+CMakeFiles/Makefile2:418: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/all' failed
+Makefile:160: recipe for target 'all' failed
+# Sudo Usage Preparation
+sudo apt-get update
+Get:1 http://archive.raspberrypi.org/debian stretch InRelease [25.4 kB]
+Hit:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease
+Fetched 25.4 kB in 1s (16.3 kB/s)
+Reading package lists...
+sudo apt-get upgrade
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages have been kept back:
+  nodejs nodered
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+# FLTK Installation
+sudo apt-get install libfltk1.3-dev libx11-dev fltk1.3-dev libxinerama1 x11proto-xinerama-dev
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libfltk1.3-dev is already the newest version (1.3.4-4).
+libx11-dev is already the newest version (2:1.6.4-3+deb9u1).
+libxinerama1 is already the newest version (2:1.1.3-1+b1).
+x11proto-xinerama-dev is already the newest version (1.2.1-2).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+# OpenCV Installation
+sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python3.5 python3-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff5-dev libdc1394-22-dev libeigen3-dev libtheora-dev libvorbis-dev libxvidcore-dev libx264-dev sphinx-common libtbb-dev yasm libfaac-dev libopencore-amrnb-dev libopencore-amrwb-dev libopenexr-dev libgstreamer-plugins-base1.0-dev libavutil-dev libavfilter-dev libavresample-dev
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.3).
+cmake is already the newest version (3.7.2-1).
+git is already the newest version (1:2.11.0-3+deb9u5).
+libdc1394-22-dev is already the newest version (2.2.5-1).
+libeigen3-dev is already the newest version (3.3.2-1).
+libgstreamer-plugins-base1.0-dev is already the newest version (1.10.4-1+deb9u1).
+libgtk2.0-dev is already the newest version (2.24.31-2).
+libjpeg-dev is already the newest version (1:1.5.1-2).
+libopencore-amrnb-dev is already the newest version (0.1.3-2.1).
+libopencore-amrwb-dev is already the newest version (0.1.3-2.1).
+libopenexr-dev is already the newest version (2.2.0-11).
+libpng-dev is already the newest version (1.6.28-1+deb9u1).
+libtbb-dev is already the newest version (4.3~20150611-2).
+libtbb2 is already the newest version (4.3~20150611-2).
+libtheora-dev is already the newest version (1.1.1+dfsg.1-14).
+libtiff5-dev is already the newest version (4.0.8-2+deb9u4).
+libvorbis-dev is already the newest version (1.3.5-4+deb9u2).
+libx264-dev is already the newest version (2:0.148.2748+git97eaef2-1+rpi1).
+libxvidcore-dev is already the newest version (2:1.3.4-1).
+pkg-config is already the newest version (0.29-4).
+python3-numpy is already the newest version (1:1.12.1-3).
+python3.5 is already the newest version (3.5.3-1+deb9u1).
+sphinx-common is already the newest version (1.4.9-2).
+yasm is already the newest version (1.3.0-2).
+libavcodec-dev is already the newest version (7:3.2.14-1~deb9u1+rpt1).
+libavfilter-dev is already the newest version (7:3.2.14-1~deb9u1+rpt1).
+libavformat-dev is already the newest version (7:3.2.14-1~deb9u1+rpt1).
+libavresample-dev is already the newest version (7:3.2.14-1~deb9u1+rpt1).
+libavutil-dev is already the newest version (7:3.2.14-1~deb9u1+rpt1).
+libswscale-dev is already the newest version (7:3.2.14-1~deb9u1+rpt1).
+libfaac-dev is already the newest version (1.28-6).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+cd /opt && sudo rm -f -r opencv opencv_contrib
+cd /opt && sudo git clone https://github.com/Itseez/opencv.git
+cd /opt && sudo git clone https://github.com/Itseez/opencv_contrib.git
+cd /opt/opencv && sudo mkdir release
+cd /opt/opencv/release && sudo cmake -D BUILD_TIFF=ON -D WITH_CUDA=OFF -D ENABLE_AVX=OFF -D WITH_OPENGL=OFF -D WITH_OPENCL=OFF -D WITH_IPP=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_EIGEN=OFF -D WITH_V4L=OFF -D WITH_VTK=OFF -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules /opt/opencv/
+-- The CXX compiler identification is GNU 6.3.0
+-- The C compiler identification is GNU 6.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detected processor: armv7l
+-- Found PythonInterp: /usr/bin/python2.7 (found suitable version "2.7.13", minimum required is "2.7") 
+-- Found PythonLibs: /usr/lib/arm-linux-gnueabihf/libpython2.7.so (found suitable exact version "2.7.13") 
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.5.3", minimum required is "3.2") 
+-- Found PythonLibs: /usr/lib/arm-linux-gnueabihf/libpython3.5m.so (found suitable exact version "3.5.3") 
+-- Looking for ccache - not found
+-- Performing Test HAVE_CXX_FSIGNED_CHAR
+-- Performing Test HAVE_CXX_FSIGNED_CHAR - Success
+-- Performing Test HAVE_C_FSIGNED_CHAR
+-- Performing Test HAVE_C_FSIGNED_CHAR - Success
+-- Performing Test HAVE_CXX_W
+-- Performing Test HAVE_CXX_W - Success
+-- Performing Test HAVE_C_W
+-- Performing Test HAVE_C_W - Success
+-- Performing Test HAVE_CXX_WALL
+-- Performing Test HAVE_CXX_WALL - Success
+-- Performing Test HAVE_C_WALL
+-- Performing Test HAVE_C_WALL - Success
+-- Performing Test HAVE_CXX_WERROR_RETURN_TYPE
+-- Performing Test HAVE_CXX_WERROR_RETURN_TYPE - Success
+-- Performing Test HAVE_C_WERROR_RETURN_TYPE
+-- Performing Test HAVE_C_WERROR_RETURN_TYPE - Success
+-- Performing Test HAVE_CXX_WERROR_NON_VIRTUAL_DTOR
+-- Performing Test HAVE_CXX_WERROR_NON_VIRTUAL_DTOR - Success
+-- Performing Test HAVE_C_WERROR_NON_VIRTUAL_DTOR
+-- Performing Test HAVE_C_WERROR_NON_VIRTUAL_DTOR - Success
+-- Performing Test HAVE_CXX_WERROR_ADDRESS
+-- Performing Test HAVE_CXX_WERROR_ADDRESS - Success
+-- Performing Test HAVE_C_WERROR_ADDRESS
+-- Performing Test HAVE_C_WERROR_ADDRESS - Success
+-- Performing Test HAVE_CXX_WERROR_SEQUENCE_POINT
+-- Performing Test HAVE_CXX_WERROR_SEQUENCE_POINT - Success
+-- Performing Test HAVE_C_WERROR_SEQUENCE_POINT
+-- Performing Test HAVE_C_WERROR_SEQUENCE_POINT - Success
+-- Performing Test HAVE_CXX_WFORMAT
+-- Performing Test HAVE_CXX_WFORMAT - Success
+-- Performing Test HAVE_C_WFORMAT
+-- Performing Test HAVE_C_WFORMAT - Success
+-- Performing Test HAVE_CXX_WERROR_FORMAT_SECURITY
+-- Performing Test HAVE_CXX_WERROR_FORMAT_SECURITY - Success
+-- Performing Test HAVE_C_WERROR_FORMAT_SECURITY
+-- Performing Test HAVE_C_WERROR_FORMAT_SECURITY - Success
+-- Performing Test HAVE_CXX_WMISSING_DECLARATIONS
+-- Performing Test HAVE_CXX_WMISSING_DECLARATIONS - Success
+-- Performing Test HAVE_C_WMISSING_DECLARATIONS
+-- Performing Test HAVE_C_WMISSING_DECLARATIONS - Success
+-- Performing Test HAVE_CXX_WMISSING_PROTOTYPES
+-- Performing Test HAVE_CXX_WMISSING_PROTOTYPES - Failed
+-- Performing Test HAVE_C_WMISSING_PROTOTYPES
+-- Performing Test HAVE_C_WMISSING_PROTOTYPES - Success
+-- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES
+-- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES - Failed
+-- Performing Test HAVE_C_WSTRICT_PROTOTYPES
+-- Performing Test HAVE_C_WSTRICT_PROTOTYPES - Success
+-- Performing Test HAVE_CXX_WUNDEF
+-- Performing Test HAVE_CXX_WUNDEF - Success
+-- Performing Test HAVE_C_WUNDEF
+-- Performing Test HAVE_C_WUNDEF - Success
+-- Performing Test HAVE_CXX_WINIT_SELF
+-- Performing Test HAVE_CXX_WINIT_SELF - Success
+-- Performing Test HAVE_C_WINIT_SELF
+-- Performing Test HAVE_C_WINIT_SELF - Success
+-- Performing Test HAVE_CXX_WPOINTER_ARITH
+-- Performing Test HAVE_CXX_WPOINTER_ARITH - Success
+-- Performing Test HAVE_C_WPOINTER_ARITH
+-- Performing Test HAVE_C_WPOINTER_ARITH - Success
+-- Performing Test HAVE_CXX_WSHADOW
+-- Performing Test HAVE_CXX_WSHADOW - Success
+-- Performing Test HAVE_C_WSHADOW
+-- Performing Test HAVE_C_WSHADOW - Success
+-- Performing Test HAVE_CXX_WSIGN_PROMO
+-- Performing Test HAVE_CXX_WSIGN_PROMO - Success
+-- Performing Test HAVE_C_WSIGN_PROMO
+-- Performing Test HAVE_C_WSIGN_PROMO - Failed
+-- Performing Test HAVE_CXX_WUNINITIALIZED
+-- Performing Test HAVE_CXX_WUNINITIALIZED - Success
+-- Performing Test HAVE_C_WUNINITIALIZED
+-- Performing Test HAVE_C_WUNINITIALIZED - Success
+-- Performing Test HAVE_CXX_WNO_PSABI
+-- Performing Test HAVE_CXX_WNO_PSABI - Success
+-- Performing Test HAVE_C_WNO_PSABI
+-- Performing Test HAVE_C_WNO_PSABI - Success
+-- Performing Test HAVE_CXX_WSUGGEST_OVERRIDE
+-- Performing Test HAVE_CXX_WSUGGEST_OVERRIDE - Success
+-- Performing Test HAVE_C_WSUGGEST_OVERRIDE
+-- Performing Test HAVE_C_WSUGGEST_OVERRIDE - Failed
+-- Performing Test HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR
+-- Performing Test HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR - Success
+-- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR
+-- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR - Failed
+-- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS
+-- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Failed
+-- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS
+-- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Failed
+-- Performing Test HAVE_CXX_WNO_COMMENT
+-- Performing Test HAVE_CXX_WNO_COMMENT - Success
+-- Performing Test HAVE_C_WNO_COMMENT
+-- Performing Test HAVE_C_WNO_COMMENT - Success
+-- Performing Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION
+-- Performing Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION - Success
+-- Performing Test HAVE_C_FDIAGNOSTICS_SHOW_OPTION
+-- Performing Test HAVE_C_FDIAGNOSTICS_SHOW_OPTION - Success
+-- Performing Test HAVE_CXX_PTHREAD
+-- Performing Test HAVE_CXX_PTHREAD - Success
+-- Performing Test HAVE_C_PTHREAD
+-- Performing Test HAVE_C_PTHREAD - Success
+-- Performing Test HAVE_CXX_FOMIT_FRAME_POINTER
+-- Performing Test HAVE_CXX_FOMIT_FRAME_POINTER - Success
+-- Performing Test HAVE_C_FOMIT_FRAME_POINTER
+-- Performing Test HAVE_C_FOMIT_FRAME_POINTER - Success
+-- Performing Test HAVE_CXX_FFUNCTION_SECTIONS
+-- Performing Test HAVE_CXX_FFUNCTION_SECTIONS - Success
+-- Performing Test HAVE_C_FFUNCTION_SECTIONS
+-- Performing Test HAVE_C_FFUNCTION_SECTIONS - Success
+-- Performing Test HAVE_CXX_FDATA_SECTIONS
+-- Performing Test HAVE_CXX_FDATA_SECTIONS - Success
+-- Performing Test HAVE_C_FDATA_SECTIONS
+-- Performing Test HAVE_C_FDATA_SECTIONS - Success
+-- WARNING: Option ENABLE_AVX='OFF' is deprecated and should not be used anymore
+--          Behaviour of this option is not backward compatible
+--          Refer to 'CPU_BASELINE'/'CPU_DISPATCH' CMake options documentation
+-- Performing Test HAVE_CXX_MFPU_VFPV3
+-- Performing Test HAVE_CXX_MFPU_VFPV3 - Success
+-- Performing Test HAVE_CPU_NEON_SUPPORT (check file: cmake/checks/cpu_neon.cpp)
+-- Performing Test HAVE_CPU_NEON_SUPPORT - Failed
+-- Performing Test HAVE_CXX_MFPU_NEON (check file: cmake/checks/cpu_neon.cpp)
+-- Performing Test HAVE_CXX_MFPU_NEON - Success
+-- Performing Test HAVE_CPU_FP16_SUPPORT (check file: cmake/checks/cpu_fp16.cpp)
+-- Performing Test HAVE_CPU_FP16_SUPPORT - Failed
+-- Performing Test HAVE_CXX_MFPU_NEON_FP16_MFP16_FORMAT_IEEE (check file: cmake/checks/cpu_fp16.cpp)
+-- Performing Test HAVE_CXX_MFPU_NEON_FP16_MFP16_FORMAT_IEEE - Success
+-- Performing Test HAVE_CPU_BASELINE_FLAGS
+-- Performing Test HAVE_CPU_BASELINE_FLAGS - Success
+-- Performing Test HAVE_CXX_FVISIBILITY_HIDDEN
+-- Performing Test HAVE_CXX_FVISIBILITY_HIDDEN - Success
+-- Performing Test HAVE_C_FVISIBILITY_HIDDEN
+-- Performing Test HAVE_C_FVISIBILITY_HIDDEN - Success
+-- Performing Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN
+-- Performing Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN - Success
+-- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN
+-- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN - Failed
+-- Performing Test HAVE_LINK_AS_NEEDED
+-- Performing Test HAVE_LINK_AS_NEEDED - Success
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for posix_memalign
+-- Looking for posix_memalign - found
+-- Looking for malloc.h
+-- Looking for malloc.h - found
+-- Looking for memalign
+-- Looking for memalign - found
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Found ZLIB: /usr/lib/arm-linux-gnueabihf/libz.so (found suitable version "1.2.8", minimum required is "1.2.3") 
+-- Found JPEG: /usr/lib/arm-linux-gnueabihf/libjpeg.so  
+-- Looking for assert.h
+-- Looking for assert.h - found
+-- Looking for dlfcn.h
+-- Looking for dlfcn.h - found
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Looking for inttypes.h
+-- Looking for inttypes.h - found
+-- Looking for io.h
+-- Looking for io.h - not found
+-- Looking for limits.h
+-- Looking for limits.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for search.h
+-- Looking for search.h - found
+-- Looking for string.h
+-- Looking for string.h - found
+-- Looking for strings.h
+-- Looking for strings.h - found
+-- Looking for sys/time.h
+-- Looking for sys/time.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Performing Test C_HAS_inline
+-- Performing Test C_HAS_inline - Success
+-- Check size of signed short
+-- Check size of signed short - done
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Check size of signed int
+-- Check size of signed int - done
+-- Check size of unsigned int
+-- Check size of unsigned int - done
+-- Check size of signed long
+-- Check size of signed long - done
+-- Check size of unsigned long
+-- Check size of unsigned long - done
+-- Check size of signed long long
+-- Check size of signed long long - done
+-- Check size of unsigned long long
+-- Check size of unsigned long long - done
+-- Check size of unsigned char *
+-- Check size of unsigned char * - done
+-- Check size of size_t
+-- Check size of size_t - done
+-- Check size of ptrdiff_t
+-- Check size of ptrdiff_t - done
+-- Check size of INT8
+-- Check size of INT8 - failed
+-- Check size of INT16
+-- Check size of INT16 - failed
+-- Check size of INT32
+-- Check size of INT32 - failed
+-- Looking for floor
+-- Looking for floor - found
+-- Looking for pow
+-- Looking for pow - found
+-- Looking for sqrt
+-- Looking for sqrt - found
+-- Looking for isascii
+-- Looking for isascii - found
+-- Looking for memset
+-- Looking for memset - found
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for getopt
+-- Looking for getopt - found
+-- Looking for memmove
+-- Looking for memmove - found
+-- Looking for setmode
+-- Looking for setmode - not found
+-- Looking for strcasecmp
+-- Looking for strcasecmp - found
+-- Looking for strchr
+-- Looking for strchr - found
+-- Looking for strrchr
+-- Looking for strrchr - found
+-- Looking for strstr
+-- Looking for strstr - found
+-- Looking for strtol
+-- Looking for strtol - found
+-- Looking for strtol
+-- Looking for strtol - found
+-- Looking for strtoull
+-- Looking for strtoull - found
+-- Looking for lfind
+-- Looking for lfind - found
+-- Performing Test HAVE_SNPRINTF
+-- Performing Test HAVE_SNPRINTF - Success
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE
+-- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE - Success
+-- Performing Test HAVE_C_WNO_MISSING_PROTOTYPES
+-- Performing Test HAVE_C_WNO_MISSING_PROTOTYPES - Success
+-- Performing Test HAVE_C_WNO_MISSING_DECLARATIONS
+-- Performing Test HAVE_C_WNO_MISSING_DECLARATIONS - Success
+-- Performing Test HAVE_C_WNO_UNDEF
+-- Performing Test HAVE_C_WNO_UNDEF - Success
+-- Performing Test HAVE_C_WNO_UNUSED
+-- Performing Test HAVE_C_WNO_UNUSED - Success
+-- Performing Test HAVE_C_WNO_SIGN_COMPARE
+-- Performing Test HAVE_C_WNO_SIGN_COMPARE - Success
+-- Performing Test HAVE_C_WNO_CAST_ALIGN
+-- Performing Test HAVE_C_WNO_CAST_ALIGN - Success
+-- Performing Test HAVE_C_WNO_SHADOW
+-- Performing Test HAVE_C_WNO_SHADOW - Success
+-- Performing Test HAVE_C_WNO_MAYBE_UNINITIALIZED
+-- Performing Test HAVE_C_WNO_MAYBE_UNINITIALIZED - Success
+-- Performing Test HAVE_C_WNO_POINTER_TO_INT_CAST
+-- Performing Test HAVE_C_WNO_POINTER_TO_INT_CAST - Success
+-- Performing Test HAVE_C_WNO_INT_TO_POINTER_CAST
+-- Performing Test HAVE_C_WNO_INT_TO_POINTER_CAST - Success
+-- Performing Test HAVE_C_WNO_MISLEADING_INDENTATION
+-- Performing Test HAVE_C_WNO_MISLEADING_INDENTATION - Success
+-- Performing Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH
+-- Performing Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH - Failed
+-- Performing Test HAVE_C_WNO_UNUSED_PARAMETER
+-- Performing Test HAVE_C_WNO_UNUSED_PARAMETER - Success
+-- Performing Test HAVE_CXX_WNO_MISSING_DECLARATIONS
+-- Performing Test HAVE_CXX_WNO_MISSING_DECLARATIONS - Success
+-- Performing Test HAVE_CXX_WNO_UNUSED_PARAMETER
+-- Performing Test HAVE_CXX_WNO_UNUSED_PARAMETER - Success
+-- Performing Test HAVE_CXX_WNO_MISSING_PROTOTYPES
+-- Performing Test HAVE_CXX_WNO_MISSING_PROTOTYPES - Failed
+-- Performing Test HAVE_CXX_WNO_UNDEF
+-- Performing Test HAVE_CXX_WNO_UNDEF - Success
+-- Performing Test HAVE_C_STD_C99
+-- Performing Test HAVE_C_STD_C99 - Success
+-- Performing Test HAVE_C_WNO_UNUSED_VARIABLE
+-- Performing Test HAVE_C_WNO_UNUSED_VARIABLE - Success
+-- Performing Test HAVE_C_WNO_UNUSED_FUNCTION
+-- Performing Test HAVE_C_WNO_UNUSED_FUNCTION - Success
+-- Could NOT find OpenJPEG (minimal suitable version: 2.0, recommended version >= 2.3.1)
+-- Could NOT find Jasper (missing:  JASPER_LIBRARIES JASPER_INCLUDE_DIR) 
+-- Performing Test HAVE_C_WNO_IMPLICIT_FUNCTION_DECLARATION
+-- Performing Test HAVE_C_WNO_IMPLICIT_FUNCTION_DECLARATION - Success
+-- Performing Test HAVE_C_WNO_UNINITIALIZED
+-- Performing Test HAVE_C_WNO_UNINITIALIZED - Success
+-- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_PARAMETER
+-- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_PARAMETER - Success
+-- Performing Test HAVE_C_WNO_STRICT_OVERFLOW
+-- Performing Test HAVE_C_WNO_STRICT_OVERFLOW - Success
+-- Performing Test HAVE_C_WNO_POINTER_COMPARE
+-- Performing Test HAVE_C_WNO_POINTER_COMPARE - Failed
+-- Performing Test HAVE_C_WNO_ABSOLUTE_VALUE
+-- Performing Test HAVE_C_WNO_ABSOLUTE_VALUE - Failed
+-- Performing Test HAVE_C_WNO_STRICT_PROTOTYPES
+-- Performing Test HAVE_C_WNO_STRICT_PROTOTYPES - Success
+-- Found ZLIB: /usr/lib/arm-linux-gnueabihf/libz.so (found version "1.2.8") 
+-- Found PNG: /usr/lib/arm-linux-gnueabihf/libpng.so (found version "1.6.28") 
+-- Looking for /usr/include/libpng/png.h
+-- Looking for /usr/include/libpng/png.h - found
+-- Found OpenEXR: /usr/lib/arm-linux-gnueabihf/libIlmImf.so
+-- Checking for module 'gtk+-3.0'
+--   Found gtk+-3.0, version 3.22.11
+-- Checking for module 'gthread-2.0'
+--   Found gthread-2.0, version 2.50.3
+-- TBB: Download: v2020.1.tar.gz
+-- Performing Test HAVE_CXX_WNO_SHADOW
+-- Performing Test HAVE_CXX_WNO_SHADOW - Success
+-- Performing Test HAVE_CXX_WNO_CLASS_MEMACCESS
+-- Performing Test HAVE_CXX_WNO_CLASS_MEMACCESS - Failed
+-- Performing Test HAVE_CXX_WNO_IMPLICIT_FALLTHROUGH
+-- Performing Test HAVE_CXX_WNO_IMPLICIT_FALLTHROUGH - Failed
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+-- Could NOT find Atlas (missing:  Atlas_CLAPACK_INCLUDE_DIR) 
+-- Looking for dgemm_
+-- Looking for dgemm_ - found
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE  
+-- A library with BLAS API found.
+-- Looking for cheev_
+-- Looking for cheev_ - found
+-- A library with LAPACK API found.
+-- Performing Test HAVE_CXX_WNO_DEPRECATED
+-- Performing Test HAVE_CXX_WNO_DEPRECATED - Success
+-- Performing Test HAVE_CXX_WNO_UNUSED_LOCAL_TYPEDEFS
+-- Performing Test HAVE_CXX_WNO_UNUSED_LOCAL_TYPEDEFS - Success
+-- Performing Test HAVE_CXX_WNO_SIGN_COMPARE
+-- Performing Test HAVE_CXX_WNO_SIGN_COMPARE - Success
+-- Performing Test HAVE_CXX_WNO_SIGN_PROMO
+-- Performing Test HAVE_CXX_WNO_SIGN_PROMO - Success
+-- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_UNDEFINED_COMPARE
+-- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_UNDEFINED_COMPARE - Failed
+-- Performing Test HAVE_CXX_WNO_IGNORED_QUALIFIERS
+-- Performing Test HAVE_CXX_WNO_IGNORED_QUALIFIERS - Success
+-- Performing Test HAVE_CXX_WNO_EXTRA
+-- Performing Test HAVE_CXX_WNO_EXTRA - Success
+-- Performing Test HAVE_CXX_WNO_UNUSED_FUNCTION
+-- Performing Test HAVE_CXX_WNO_UNUSED_FUNCTION - Success
+-- Performing Test HAVE_CXX_WNO_UNUSED_CONST_VARIABLE
+-- Performing Test HAVE_CXX_WNO_UNUSED_CONST_VARIABLE - Success
+-- Performing Test HAVE_CXX_WNO_SHORTEN_64_TO_32
+-- Performing Test HAVE_CXX_WNO_SHORTEN_64_TO_32 - Failed
+-- Performing Test HAVE_CXX_WNO_INVALID_OFFSETOF
+-- Performing Test HAVE_CXX_WNO_INVALID_OFFSETOF - Success
+-- Performing Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH
+-- Performing Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH - Failed
+-- Performing Test HAVE_CXX_WNO_SUGGEST_OVERRIDE
+-- Performing Test HAVE_CXX_WNO_SUGGEST_OVERRIDE - Success
+-- Performing Test HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE
+-- Performing Test HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE - Failed
+-- Performing Test HAVE_CXX_WNO_ARRAY_BOUNDS
+-- Performing Test HAVE_CXX_WNO_ARRAY_BOUNDS - Success
+-- Could NOT find JNI (missing:  JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+-- Carotene: NEON is not available, disabling carotene...
+-- Looking for dlerror in dl
+-- Looking for dlerror in dl - found
+-- ADE: Download: v0.1.1f.zip
+-- OpenCV Python: during development append to PYTHONPATH: /opt/opencv/release/python_loader
+-- Checking for modules 'libavcodec;libavformat;libavutil;libswscale'
+--   Found libavcodec, version 57.64.101
+--   Found libavformat, version 57.56.101
+--   Found libavutil, version 55.34.101
+--   Found libswscale, version 4.2.100
+-- Checking for module 'libavresample'
+--   Found libavresample, version 3.1.0
+-- Checking for module 'gstreamer-base-1.0'
+--   Found gstreamer-base-1.0, version 1.10.4
+-- Checking for module 'gstreamer-app-1.0'
+--   Found gstreamer-app-1.0, version 1.10.4
+-- Checking for module 'gstreamer-riff-1.0'
+--   Found gstreamer-riff-1.0, version 1.10.4
+-- Checking for module 'gstreamer-pbutils-1.0'
+--   Found gstreamer-pbutils-1.0, version 1.10.4
+-- Checking for module 'libdc1394-2'
+--   Found libdc1394-2, version 2.2.5
+-- Module opencv_alphamat disabled because the following dependencies are not found: Eigen
+-- Caffe:   NO
+-- Protobuf:   NO
+-- Glog:   NO
+-- Checking for module 'freetype2'
+--   Found freetype2, version 18.3.12
+-- Checking for module 'harfbuzz'
+--   Found harfbuzz, version 1.4.2
+-- freetype2:   YES (ver 18.3.12)
+-- harfbuzz:    YES (ver 1.4.2)
+-- Could NOT find HDF5 (missing:  HDF5_LIBRARIES HDF5_INCLUDE_DIRS) 
+-- Module opencv_ovis disabled because OGRE3D was not found
+-- No preference for use of exported gflags CMake configuration set, and no hints for include/library directories provided. Defaulting to preferring an installed/exported gflags CMake configuration if available.
+-- Failed to find installed gflags CMake configuration, searching for gflags build directories exported with CMake.
+-- Failed to find gflags - Failed to find an installed/exported CMake configuration for gflags, will perform search for installed gflags components.
+-- Failed to find gflags - Could not find gflags include directory, set GFLAGS_INCLUDE_DIR to directory containing gflags/gflags.h
+-- Failed to find glog - Could not find glog include directory, set GLOG_INCLUDE_DIR to directory containing glog/logging.h
+-- Module opencv_sfm disabled because the following dependencies are not found: Eigen Glog/Gflags
+-- Checking for module 'tesseract'
+--   No package 'tesseract' found
+-- Tesseract:   NO
+-- Allocator metrics storage type: 'int'
+-- Excluding from source files list: modules/imgproc/src/corner.avx.cpp
+-- Excluding from source files list: modules/imgproc/src/imgwarp.avx2.cpp
+-- Excluding from source files list: modules/imgproc/src/imgwarp.sse4_1.cpp
+-- Excluding from source files list: modules/imgproc/src/resize.avx2.cpp
+-- Excluding from source files list: modules/imgproc/src/resize.sse4_1.cpp
+-- Performing Test HAVE_CXX_WNO_DEPRECATED_DECLARATIONS
+-- Performing Test HAVE_CXX_WNO_DEPRECATED_DECLARATIONS - Success
+-- Registering hook 'INIT_MODULE_SOURCES_opencv_dnn': /opt/opencv/modules/dnn/cmake/hooks/INIT_MODULE_SOURCES_opencv_dnn.cmake
+-- opencv_dnn: filter out ocl4dnn source code
+-- opencv_dnn: filter out cuda4dnn source code
+-- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.avx.cpp
+-- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.avx2.cpp
+-- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.avx512_skx.cpp
+-- Excluding from source files list: modules/features2d/src/fast.avx2.cpp
+-- Performing Test HAVE_CXX_WNO_OVERLOADED_VIRTUAL
+-- Performing Test HAVE_CXX_WNO_OVERLOADED_VIRTUAL - Success
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm.i
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm_bi.i
+-- xfeatures2d/boostdesc: Download: boostdesc_bgm_hd.i
+-- xfeatures2d/boostdesc: Download: boostdesc_binboost_064.i
+-- xfeatures2d/boostdesc: Download: boostdesc_binboost_128.i
+-- xfeatures2d/boostdesc: Download: boostdesc_binboost_256.i
+-- xfeatures2d/boostdesc: Download: boostdesc_lbgm.i
+-- xfeatures2d/vgg: Download: vgg_generated_48.i
+-- xfeatures2d/vgg: Download: vgg_generated_64.i
+-- xfeatures2d/vgg: Download: vgg_generated_80.i
+-- xfeatures2d/vgg: Download: vgg_generated_120.i
+-- data: Download: face_landmark_model.dat
+-- Performing Test HAVE_CXX_WNO_UNUSED_PRIVATE_FIELD
+-- Performing Test HAVE_CXX_WNO_UNUSED_PRIVATE_FIELD - Failed
+-- 
+-- General configuration for OpenCV 4.3.0-pre =====================================
+--   Version control:               4.2.0-572-g277f0d270f
+-- 
+--   Extra modules:
+--     Location (extra):            /opt/opencv_contrib/modules
+--     Version control (extra):     4.2.0-67-ge6f32c6a
+-- 
+--   Platform:
+--     Timestamp:                   2020-04-03T02:34:36Z
+--     Host:                        Linux 4.19.66-v7+ armv7l
+--     CMake:                       3.7.2
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   CPU/HW features:
+--     Baseline:
+--       requested:                 DETECT
+--       disabled:                  AVX VFPV3 NEON
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ standard:                11
+--     C++ Compiler:                /usr/bin/c++  (ver 6.3.0)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-psabi -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-psabi -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-psabi -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-psabi -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      -Wl,--gc-sections -Wl,--as-needed  
+--     Linker flags (Debug):        -Wl,--gc-sections -Wl,--as-needed  
+--     ccache:                      NO
+--     Precompiled headers:         NO
+--     Extra dependencies:          dl m pthread rt
+--     3rdparty dependencies:
+-- 
+--   OpenCV modules:
+--     To be built:                 aruco bgsegm bioinspired calib3d ccalib core datasets dnn dnn_objdetect dnn_superres dpm face features2d flann freetype fuzzy gapi hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor ml objdetect optflow phase_unwrapping photo plot python2 python3 quality rapid reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking video videoio videostab xfeatures2d ximgproc xobjdetect xphoto
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 alphamat cnn_3dobj cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv hdf java js matlab ovis sfm ts viz
+--     Applications:                apps
+--     Documentation:               NO
+--     Non-free algorithms:         NO
+-- 
+--   GUI: 
+--     GTK+:                        YES (ver 3.22.11)
+--       GThread :                  YES (ver 2.50.3)
+--       GtkGlExt:                  NO
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/arm-linux-gnueabihf/libz.so (ver 1.2.8)
+--     JPEG:                        /usr/lib/arm-linux-gnueabihf/libjpeg.so (ver 62)
+--     WEBP:                        build (ver encoder: 0x020f)
+--     PNG:                         /usr/lib/arm-linux-gnueabihf/libpng.so (ver 1.6.28)
+--     TIFF:                        build (ver 42 - 4.0.10)
+--     JPEG 2000:                   build Jasper (ver 1.900.1)
+--     OpenEXR:                     /usr/lib/arm-linux-gnueabihf/libImath.so /usr/lib/arm-linux-gnueabihf/libIlmImf.so /usr/lib/arm-linux-gnueabihf/libIex.so /usr/lib/arm-linux-gnueabihf/libHalf.so /usr/lib/arm-linux-gnueabihf/libIlmThread.so (ver 2_2)
+--     HDR:                         YES
+--     SUNRASTER:                   YES
+--     PXM:                         YES
+--     PFM:                         YES
+-- 
+--   Video I/O:
+--     DC1394:                      YES (2.2.5)
+--     FFMPEG:                      YES
+--       avcodec:                   YES (57.64.101)
+--       avformat:                  YES (57.56.101)
+--       avutil:                    YES (55.34.101)
+--       swscale:                   YES (4.2.100)
+--       avresample:                YES (3.1.0)
+--     GStreamer:                   YES (1.10.4)
+-- 
+--   Parallel framework:            TBB (ver 2020.1 interface 11101)
+-- 
+--   Trace:                         YES (with Intel ITT)
+-- 
+--   Other third-party libraries:
+--     Lapack:                      NO
+--     Custom HAL:                  NO
+--     Protobuf:                    build (3.5.1)
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.13)
+--     Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython2.7.so (ver 2.7.13)
+--     numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.12.1)
+--     install path:                lib/python2.7/dist-packages/cv2/python-2.7
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/bin/python3 (ver 3.5.3)
+--     Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython3.5m.so (ver 3.5.3)
+--     numpy:                       /usr/lib/python3/dist-packages/numpy/core/include (ver 1.12.1)
+--     install path:                lib/python3.5/dist-packages/cv2/python-3.5
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:                          
+--     ant:                         NO
+--     JNI:                         NO
+--     Java wrappers:               NO
+--     Java tests:                  NO
+-- 
+--   Install to:                    /usr/local
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/opencv/release
+cd /opt/opencv/release && sudo make -j
+Scanning dependencies of target opencv_videoio_plugins
+Scanning dependencies of target quirc
+Scanning dependencies of target gen_opencv_python_source
+Scanning dependencies of target ittnotify
+[  0%] Built target opencv_videoio_plugins
+Scanning dependencies of target ade
+[  0%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/quirc.c.o
+[  0%] Building C object 3rdparty/ittnotify/CMakeFiles/ittnotify.dir/src/ittnotify/ittnotify_static.c.o
+[  0%] Building C object 3rdparty/ittnotify/CMakeFiles/ittnotify.dir/src/ittnotify/jitprofiling.c.o
+[  0%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/decode.c.o
+[  1%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/version_db.c.o
+Scanning dependencies of target libtiff
+[  1%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_ref.cpp.o
+[  1%] Generate files for Python bindings and documentation
+[  1%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/alloc.cpp.o
+[  1%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/check_cycles.cpp.o
+[  1%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/assert.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/execution_engine.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/subgraphs.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/edge.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_accessor.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metatypes.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/node.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/search.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_view.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/passes/communications.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/topological_sort.cpp.o
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metadata.cpp.o
+Scanning dependencies of target libjasper
+[  2%] Building CXX object modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/graph.cpp.o
+Scanning dependencies of target tbb
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_color.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_compress.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dumpmode.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_aux.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_extension.c.o
+[  2%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_close.c.o
+[  3%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg_12.c.o
+[  3%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dir.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jbig.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_flush.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirwrite.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_getimage.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_codec.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirread.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3sm.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirinfo.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_pixarlog.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_error.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzma.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_swab.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzw.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_luv.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_predict.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_print.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_packbits.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_read.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_strip.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_thunder.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_next.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_ojpeg.c.o
+[  4%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_open.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_tile.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_version.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zstd.c.o
+[  5%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_warning.c.o
+[  6%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_cm.c.o
+[  6%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_write.c.o
+[  7%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_unix.c.o
+[  7%] Building CXX object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_stream.cxx.o
+[  7%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_webp.c.o
+[  7%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zip.c.o
+[  7%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_image.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_tvp.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_icc.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_init.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_tmr.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_seq.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_getopt.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_iccdata.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_version.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_string.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_malloc.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_debug.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_stream.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_dec.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_dec.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_cs.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_enc.c.o
+[  8%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_hash_map.cpp.o
+[  8%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/arena.cpp.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_bs.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_enc.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_qmfb.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqenc.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_cod.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqcod.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mct.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1cod.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_math.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2cod.c.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1dec.c.o
+[  8%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/critical_section.cpp.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tagtree.c.o
+[  8%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/cache_aligned_allocator.cpp.o
+[  8%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1enc.c.o
+[  9%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqdec.c.o
+[  9%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2dec.c.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_vector.cpp.o
+[  9%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2enc.c.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/dynamic_link.cpp.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/condition_variable.cpp.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/mutex.cpp.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_queue.cpp.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_monitor.cpp.o
+[  9%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/market.cpp.o
+[  9%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_util.c.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/itt_notify.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/governor.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/pipeline.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/observer_proxy.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/reader_writer_lock.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/recursive_mutex.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_thread.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_mutex.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_rw_mutex.cpp.o
+[ 10%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_mutex.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/semaphore.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/private_server.cpp.o
+[ 11%] Building C object 3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tsfb.c.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/scheduler.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/x86_rtm_rw_mutex.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_rw_mutex.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_main.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc_ex.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task_group_context.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_statistics.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc.cpp.o
+[ 11%] Building CXX object 3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/rml/client/rml_tbb.cpp.o
+Scanning dependencies of target libwebp
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/alpha_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/tree_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/buffer_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/io_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/quant_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/idec_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/frame_dec.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing.c.o
+[ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8l_dec.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/anim_decode.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_sse2.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/webp_dec.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_neon.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_neon.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_sse2.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/demux.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_sse41.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_mips32.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_mips_dsp_r2.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_neon.c.o
+[ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_mips32.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_mips_dsp_r2.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_mips_dsp_r2.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_neon.c.o
+Scanning dependencies of target libprotobuf
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_neon.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_sse41.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_clip_tables.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_msa.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_sse2.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_mips_dsp_r2.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cpu.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_sse2.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_mips32.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_msa.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_sse2.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_sse41.c.o
+[ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_msa.c.o
+makeDependencies:2: recipe for target 'MakeAll' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:62: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_cm.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:158: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_compress.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:254: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirwrite.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:134: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_icc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:422: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_getimage.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:182: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_image.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:134: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_color.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:254: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_seq.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:374: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3sm.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:278: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_stream.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:206: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirinfo.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:86: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jas_debug.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:182: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dir.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:518: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_dec.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:230: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirread.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:494: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_cs.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:350: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:422: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_dec.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:494: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:446: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_enc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:518: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_luv.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:686: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_qmfb.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:566: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzw.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:470: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_bs.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:662: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_packbits.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:782: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2cod.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:710: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_predict.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:734: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1dec.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:590: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_next.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:662: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqenc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:758: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_read.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:710: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1cod.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:782: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_strip.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:758: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t1enc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:806: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_swab.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:638: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mqdec.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:638: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_open.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:806: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2dec.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:734: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_print.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:830: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_t2enc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:830: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_thunder.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:398: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jp2_cod.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:854: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_tile.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:590: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_mct.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:950: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_write.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:542: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_enc.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:1022: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_stream.cxx.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:902: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_util.c.o' failed
+3rdparty/libtiff/CMakeFiles/libtiff.dir/build.make:974: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zip.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:854: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tagtree.c.o' failed
+3rdparty/libjasper/CMakeFiles/libjasper.dir/build.make:878: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/jpc_tsfb.c.o' failed
+3rdparty/quirc/CMakeFiles/quirc.dir/build.make:62: recipe for target '3rdparty/quirc/CMakeFiles/quirc.dir/src/decode.c.o' failed
+modules/python_bindings_generator/CMakeFiles/gen_opencv_python_source.dir/build.make:347: recipe for target 'modules/python_bindings_generator/pyopencv_generated_enums.h' failed
+CMakeFiles/Makefile2:528: recipe for target '3rdparty/ittnotify/CMakeFiles/ittnotify.dir/all' failed
+CMakeFiles/Makefile2:473: recipe for target '3rdparty/quirc/CMakeFiles/quirc.dir/all' failed
+CMakeFiles/Makefile2:5558: recipe for target 'modules/python_bindings_generator/CMakeFiles/gen_opencv_python_source.dir/all' failed
+CMakeFiles/Makefile2:198: recipe for target '3rdparty/libtiff/CMakeFiles/libtiff.dir/all' failed
+CMakeFiles/Makefile2:308: recipe for target '3rdparty/libjasper/CMakeFiles/libjasper.dir/all' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:62: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arena.cc.o' failed
+3rdparty/protobuf/CMakeFiles/libprotobuf.dir/build.make:86: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arenastring.cc.o' failed
+CMakeFiles/Makefile2:418: recipe for target '3rdparty/protobuf/CMakeFiles/libprotobuf.dir/all' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:62: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/alpha_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:206: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/tree_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:254: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_ref.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:86: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/buffer_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:110: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/frame_dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:134: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/idec_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:110: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/check_cycles.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:158: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/io_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:134: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/edge.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:182: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/quant_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:326: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metatypes.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:230: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:230: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:254: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8l_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:422: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/subgraphs.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1118: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:278: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_view.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1142: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_mips32.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:158: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/execution_engine.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:278: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/webp_dec.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:374: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/passes/communications.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:302: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/anim_decode.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:446: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/topological_sort.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:326: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/demux.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:302: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/metadata.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:350: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:350: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/node.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:374: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:398: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/search.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:398: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_neon.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:206: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_accessor.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:422: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_sse2.c.o' failed
+modules/CMakeFiles/ade.dir/build.make:182: recipe for target 'modules/CMakeFiles/ade.dir/__/3rdparty/ade/ade-0.1.1f/sources/ade/source/graph.cpp.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:446: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_sse41.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:470: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:494: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_mips32.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:518: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:542: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:566: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:590: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cpu.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:614: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:638: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_clip_tables.c.o' failed
+CMakeFiles/Makefile2:990: recipe for target 'modules/CMakeFiles/ade.dir/all' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:662: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_mips32.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:686: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:710: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:734: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:758: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:782: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_sse41.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:806: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:830: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_mips32.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:854: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:878: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:902: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:926: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:950: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_sse41.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:974: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:998: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1022: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1046: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1070: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1094: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1166: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1190: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1214: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1238: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1262: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_sse41.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1286: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1310: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1334: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1358: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1382: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1406: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_mips32.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1430: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1454: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1478: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1502: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1526: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1550: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1574: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1598: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_mips_dsp_r2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1622: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_msa.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1646: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_neon.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1670: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse2.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1694: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse41.c.o' failed
+3rdparty/libwebp/CMakeFiles/libwebp.dir/build.make:1718: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv.c.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:110: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_hash_map.cpp.o' failed
+CMakeFiles/Makefile2:253: recipe for target '3rdparty/libwebp/CMakeFiles/libwebp.dir/all' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:254: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/dynamic_link.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:158: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_queue.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:230: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/critical_section.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:182: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_vector.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:134: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/concurrent_monitor.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:86: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/cache_aligned_allocator.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:278: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/governor.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:350: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:206: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/condition_variable.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:374: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/observer_proxy.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:326: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/market.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:302: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/itt_notify.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:590: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:470: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_rw_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:398: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/pipeline.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:446: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/queuing_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:422: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/private_server.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:614: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/spin_rw_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:686: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_main.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:494: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/reader_writer_lock.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:518: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/recursive_mutex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:542: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/scheduler.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:566: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/semaphore.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:638: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:662: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/task_group_context.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:710: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:734: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_misc_ex.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:758: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_statistics.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:782: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/tbb/tbb_thread.cpp.o' failed
+3rdparty/tbb/CMakeFiles/tbb.dir/build.make:830: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/oneTBB-2020.1/src/rml/client/rml_tbb.cpp.o' failed
+CMakeFiles/Makefile2:363: recipe for target '3rdparty/tbb/CMakeFiles/tbb.dir/all' failed
+Makefile:160: recipe for target 'all' failed
