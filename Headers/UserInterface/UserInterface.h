@@ -9,15 +9,18 @@
 #define _USER_INTERFACE_H_
 #pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <vector>
 #include <cstdint>
 #include <FL/Fl.H>
+#include <FL/Fl_Tabs.H>
 #include <FL/Fl_Widget.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Group.H>
 #include "../SessionParameters.h"
 #include "../TrackerSession.h"
+
 
 // The user interface for the current program
 class UserInterface {
@@ -65,45 +68,69 @@ protected:
 	// 
 	SessionParameters * PointerToParams;
 	TrackerSession ** PointerToTracker;
+	std::vector<std::string> deviceBuffer;
+
+	// 
+	Fl_Tabs * MotorTabs = nullptr;
+	std::vector<Fl_Button *> MotorInfo;
+	std::vector<std::string> buffer;
 
 	// 
 	void CreateIntroWindow();
 
 	// 
-	void CreateInputDeviceWindow(Fl_Widget * w);
+	static void MotorInterfaceChangeCaller(Fl_Widget *, void *);
 
 	// 
-	static void CallInputWindowCreation(Fl_Widget * w, void * object);
+	void MotorInterfaceChange(Fl_Widget *);
 
 	// 
-	void CreateMotorWindow(Fl_Widget * w);
+	static void AddMotorCaller(Fl_Widget *, void *);
 
 	// 
-	static void CallMotorWindowCreation(Fl_Widget * w, void * object);
+	void AddMotor(Fl_Widget *);
 
 	// 
-	void CreateAdvancedWindow(Fl_Widget * w);
+	static void UpdateMotorCaller(Fl_Widget *, void *);
 
 	// 
-	static void CallAdvancedWindowCreation(Fl_Widget * w, void * object);
+	void UpdateMotor(Fl_Widget *);
+
+	// 
+	void CreateInputDeviceWindow(Fl_Widget *);
+
+	// 
+	static void CallInputWindowCreation(Fl_Widget *, void *);
+
+	// 
+	void CreateMotorWindow(Fl_Widget *);
+
+	// 
+	static void CallMotorWindowCreation(Fl_Widget *, void *);
+
+	// 
+	void CreateAdvancedWindow(Fl_Widget *);
+
+	// 
+	static void CallAdvancedWindowCreation(Fl_Widget *, void *);
 
 	// 
 	void EndAnims();
 
 	// 
-	static void Player(void * object);
+	static void Player(void *);
 
 	// 
 	void AnimPlayback(void);
 
 	// 
-	void AddAnim(AnimData NewAnim);
+	void AddAnim(AnimData);
 
 	// 
 	void one();
 
 	// 
-	void two(std::string CommandIn);
+	void two(std::string);
 };
 
 #endif // _USER_INTERFACE_H_
