@@ -7,7 +7,7 @@
 
 #ifndef _INPUT_DEVICE_CPP_
 #define _INPUT_DEVICE_CPP_
-#pragma once
+
 
 #include <cstdint>
 

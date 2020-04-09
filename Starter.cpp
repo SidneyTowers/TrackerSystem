@@ -15,8 +15,8 @@ TrackerSession * GlobalTracker = nullptr;
 
 // 
 int main() {
-	if(wiringPiSetup() == -1){ //when initialize wiring faiservo,print messageto screen
-        printf("setup wiringPi faiservo !");
+	if(wiringPiSetup() == -1){
+        printf("setup wiringPi failed!");
         return 1; 
     }
 	

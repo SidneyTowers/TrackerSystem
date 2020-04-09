@@ -7,23 +7,31 @@
 
 #ifndef _USER_INTERFACE_H_
 #define _USER_INTERFACE_H_
-#pragma once
+
 
 // Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <vector>
 #include <cstdint>
+<<<<<<< HEAD
 #include <FL/Fl.H>
 #include <FL/Fl_Tabs.H>
 #include <FL/Fl_Widget.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Group.H>
+=======
+// #include <FL/Fl.H>
+// #include <FL/Fl_Widget.H>
+// #include <FL/Fl_Window.H>
+// #include <FL/Fl_Button.H>
+// #include <FL/Fl_Group.H>
+>>>>>>> 3b740d9a04b26ae4b4c5361ec7389757b175b73b
 #include "../SessionParameters.h"
 #include "../TrackerSession.h"
 
 
 // The user interface for the current program
-class UserInterface {
+class UserInterface {/*
 public:
 	// 
 	UserInterface(SessionParameters * GlobalParams, TrackerSession ** GlobalTracker);
@@ -39,7 +47,7 @@ protected:
 	struct AnimData {
 		float AnimDeltaTime = 0;
 		float WantedAnimTime = 1.0;
-		Fl_Widget * AnimTarget = nullptr;
+		// Fl_Widget * AnimTarget = nullptr;
 		int WantedX = 0;
 		int WantedY = 0;
 		int WantedWidth = 0;
@@ -130,7 +138,11 @@ protected:
 	void one();
 
 	// 
+<<<<<<< HEAD
 	void two(std::string);
+=======
+	void two(std::string CommandIn);*/
+>>>>>>> 3b740d9a04b26ae4b4c5361ec7389757b175b73b
 };
 
 #endif // _USER_INTERFACE_H_

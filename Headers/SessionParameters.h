@@ -7,7 +7,7 @@
 
 #ifndef _SESSION_PARAMETERS_H_
 #define _SESSION_PARAMETERS_H_
-#pragma once
+
 
 #include <string>
 #include "./Motors/MotorContainer.h"
