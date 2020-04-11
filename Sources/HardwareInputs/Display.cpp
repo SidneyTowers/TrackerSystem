@@ -5,6 +5,7 @@
 | Febuary 16, 2020      Created document framework.                            |
 \*----------------------------------------------------------------------------*/
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <vector>
 #include <stdio.h>
 #include <stdlib.h>

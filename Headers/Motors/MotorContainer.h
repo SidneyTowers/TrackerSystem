@@ -7,7 +7,9 @@
 
 #ifndef _MOTOR_CONTAINER_H_
 #define _MOTOR_CONTAINER_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <vector>
 #include "GenericMotor.h"
 

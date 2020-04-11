@@ -7,8 +7,9 @@
 
 #ifndef _DISPLAY_H_
 #define _DISPLAY_H_
+#pragma once
 
-
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <vector>
 #include <cstdint>
 #include "Pixel.h"

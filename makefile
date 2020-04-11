@@ -21,7 +21,7 @@ LIBRARIES =
 SUB_HEADERS = Motors/GenericMotor.h SessionParameters.h TrackerSession.h
 HEADERS = $(patsubst %,$(HEADER_DIRECTORY)/%,$(SUB_HEADERS))
 
-SUB_SOURCES = Main.o HardwareInputs/Camera.o HardwareInputs/Display.o Motors/GenericMotor.o HardwareInputs/InputDevice.o HardwareInputs/InputDeviceSignal.o HardwareInputs/Microphone.o Motors/MotorAC.o Motors/MotorContainer.o Motors/MotorCustom.o Motors/MotorDC.o Motors/MotorDisk.o Motors/MotorServo.o Motors/MotorStepper.o HardwareInputs/Pixel.o SessionParameters.o HardwareInputs/SoundWave.o TrackerSession.o UserInterface/UserInterface.o
+SUB_SOURCES = Main.o HardwareInputs/Camera.o HardwareInputs/Display.o Motors/GenericMotor.o HardwareInputs/InputDevice.o HardwareInputs/Microphone.o Motors/MotorAC.o Motors/MotorContainer.o Motors/MotorCustom.o Motors/MotorDC.o Motors/MotorDisk.o Motors/MotorServo.o Motors/MotorStepper.o HardwareInputs/Pixel.o SessionParameters.o HardwareInputs/SoundWave.o TrackerSession.o UserInterface/UserInterface.o
 SOURCES = $(patsubst %,$(SOURCE_DIRECTORY)/%,$(SUB_SOURCES))
 
 $(SOURCE_DIRECTORY)/%.o: %.c $(HEADERS)

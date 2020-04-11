@@ -7,7 +7,9 @@
 
 #ifndef _SOUND_WAVE_H_
 #define _SOUND_WAVE_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 // A logical representation of a sound wave for use
 //  with the Microphone.
 class SoundWave {

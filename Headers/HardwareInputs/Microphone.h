@@ -7,8 +7,9 @@
 
 #ifndef _MICROPHONE_H_
 #define _MICROPHONE_H_
+#pragma once
 
-
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <iostream>
 #include "./InputDevice.h"
 

@@ -7,8 +7,9 @@
 
 #ifndef _SESSION_PARAMETERS_H_
 #define _SESSION_PARAMETERS_H_
+#pragma once
 
-
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <string>
 #include "./Motors/MotorContainer.h"
 #include "./HardwareInputs/InputDevice.h"

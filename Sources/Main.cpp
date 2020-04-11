@@ -5,6 +5,7 @@
 | Febuary 18, 2020      Created document framework.                            |
 \*----------------------------------------------------------------------------*/
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include "../Headers/UserInterface/UserInterface.h"
 #include "../Headers/TrackerSession.h"
 #include "../Headers/SessionParameters.h"

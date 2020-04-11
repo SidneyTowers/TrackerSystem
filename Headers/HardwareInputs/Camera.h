@@ -7,7 +7,9 @@
 
 #ifndef _CAMERA_H_
 #define _CAMERA_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include "InputDevice.h"
 #include "Display.h"
 

@@ -7,8 +7,9 @@
 
 #ifndef _INPUT_DEVICE_CPP_
 #define _INPUT_DEVICE_CPP_
+#pragma once
 
-
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <cstdint>
 
 // 

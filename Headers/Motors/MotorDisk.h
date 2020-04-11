@@ -7,7 +7,9 @@
 
 #ifndef _MOTOR_DISK_H_
 #define _MOTOR_DISK_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include "GenericMotor.h"
 
 // Class for use with an spinning disk as the physical GenericMotor

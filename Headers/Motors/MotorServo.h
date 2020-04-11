@@ -7,7 +7,9 @@
 
 #ifndef _MOTOR_SERVO_H_
 #define _MOTOR_SERVO_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include "GenericMotor.h"
 
 // Class for use with a servo as the physical GenericMotor

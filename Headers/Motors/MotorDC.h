@@ -7,7 +7,9 @@
 
 #ifndef _MOTOR_DC_H_
 #define _MOTOR_DC_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include "GenericMotor.h"
 
 // Class for use with an DC motor as the physical GenericMotor

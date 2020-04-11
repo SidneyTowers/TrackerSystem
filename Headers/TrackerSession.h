@@ -7,7 +7,9 @@
 
 #ifndef _TRACKER_SESSION_H_
 #define _TRACKER_SESSION_H_
+#pragma once
 
+// Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <iostream>
 #include "SessionParameters.h"
 

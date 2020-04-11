@@ -8,34 +8,20 @@
 // Include section, following as globals, FLTK, OpenCV, and, lastly, locals
 #include <iostream> // For debugging purposes only
 #include <string>
-<<<<<<< HEAD
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Choice.H>
 #include <FL/Fl_Simple_Counter.H>
 #include <FL/Fl_PNG_Image.H>
 #include "opencv2/opencv.hpp"
-=======
-// #include <FL/Fl_Box.H>
-// #include <FL/Fl_Tabs.H>
-// #include <FL/Fl_Choice.H>
-// #include <FL/Fl_Simple_Counter.H>
-// #include <FL/Fl_PNG_Image.H>
-// #include "opencv2/opencv.hpp"
->>>>>>> 3b740d9a04b26ae4b4c5361ec7389757b175b73b
 #include "../../Headers/UserInterface/UserInterface.h"
 #include "../../Headers/SessionParameters.h"
 #include "../../Headers/TrackerSession.h"
 #include "../../Headers/HardwareInputs/InputDevice.h"
 #include "../../Headers/HardwareInputs/Camera.h"
 #include "../../Headers/HardwareInputs/Microphone.h"
-<<<<<<< HEAD
 
 
 // Constructor for the UserInterface class
-=======
-/*
-// 
->>>>>>> 3b740d9a04b26ae4b4c5361ec7389757b175b73b
 UserInterface::UserInterface(SessionParameters * GlobalParams, TrackerSession ** GlobalTracker) {
 	// 
 	PointerToParams = GlobalParams;
@@ -519,4 +505,4 @@ void UserInterface::two(std::string CommandIn) {
 	// Update session parameters
 	//PointerToParams->UpdateSessionParameters(CommandIn);
 }
-*/
+

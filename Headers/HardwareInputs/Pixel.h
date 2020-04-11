@@ -7,7 +7,7 @@
 
 #ifndef _PIXEL_H_
 #define _PIXEL_H_
-
+#pragma once
 
 // A logical representation of a 4-channel RGBA pixel for use
 //     with the Camera class

@@ -7,6 +7,7 @@
 
 #ifndef _GENERIC_MOTOR_H_
 #define _GENERIC_MOTOR_H_
+#pragma once
 
 // Generic motor class with abstract method for reading and setting
 //  the position of the motor.
