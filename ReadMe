@@ -1,5 +1,5 @@
 
-Requires both OpenCV and FLTK to be built: make -f makeDependencies threads=# with # being replaced by a thread amount no more than your processor's amount
+Requires both OpenCV and FLTK to be built: sudo make -f makeDependencies threads=# with # being replaced by a thread amount no more than your processor's amount
 	Afterwards, if all goes perfectly, just run make
 
 
