@@ -5,27 +5,32 @@
 | Febuary 16, 2020      Created document framework.                            |
 \*----------------------------------------------------------------------------*/
 
-#include <wiringPi.h>
 #include <iostream>
-#include "../../Headers/Motors/MotorServo.h"
+#include <cstdint>
+#include "../inc/MotorServo.h"
+#include "../lib/wiringPi/SoftPWMOutputMode.hpp"
+#include "../lib/wiringPi/Servo.hpp"
 
-#define MOTOR_SERVO_MIN_POSITION (0)
-#define MOTOR_SERVO_MAX_POSITION (100)
+#define SERVO_KP (.005)
+#define SERVO_KI (.00001)
+#define SERVO_KD (.00000001)
+#define SERVO_INT_ACTIVE_RNG (20)
+#define SERVO_INITAL_PWM (0)
+#define SERVO_PWM_RANGE  (200)
 
-// 
-MotorServo::MotorServo(int pin) {
-	this->pin = pin;
-	
-	//softPwmCreate(pin, MOTOR_SERVO_MIN_POSITION, MOTOR_SERVO_MAX_POSITION);
+
+MotorServo::MotorServo(int pin)
+		: GenericMotor((controllerRef = new Servo(new SoftPWMOutputMode(pin, SERVO_INITAL_PWM, SERVO_PWM_RANGE))),
+						SERVO_KP, SERVO_KI, SERVO_KD, (int64_t) SERVO_INT_ACTIVE_RNG) {
 }
 
-// 
-void MotorServo::update() {
-    if(Position > MOTOR_SERVO_MAX_POSITION)
-        Position = MOTOR_SERVO_MAX_POSITION;
-    if(Position < MOTOR_SERVO_MIN_POSITION)
-        Position = MOTOR_SERVO_MIN_POSITION;
+void MotorServo::move(int32_t position) {
+	lastPosition += position;
 	
-	//softPWMWrite(pin, Position);
+	if (lastPosition > MOTOR_SERVO_MAX_POSITION)
+		lastPosition = MOTOR_SERVO_MAX_POSITION;
+    else if (lastPosition < MOTOR_SERVO_MIN_POSITION)
+        lastPosition = MOTOR_SERVO_MIN_POSITION;
+	
+	controllerRef->setPosition(lastPosition);
 }
-

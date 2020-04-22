@@ -11,16 +11,13 @@
 #include <vector>
 #include "GenericMotor.h"
 
+
 // Generic motor class with abstract method for reading and setting
 //  the position of the motor.
-class MotorContainer {
+class MotorContainer: public std::vector<GenericMotor*> {
 public:
-	// 
-	MotorContainer(unsigned char MotorAmount, std::vector<unsigned char> MotorTypes);
-
-private:
-	// 
-	std::vector<GenericMotor*> MotorArray;
+	// Updates all motors in this container
+	void updateAll();
 };
 
 #endif // _MOTOR_CONTAINER_H_

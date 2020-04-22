@@ -10,11 +10,14 @@
 
 #include "GenericMotor.h"
 
+
 // Class for use with an AC motor as the physical GenericMotor
 //  to move the physical InputDevice.
 class MotorAC: public GenericMotor {
   public:
-	void update();
+	MotorAC(int pin);
+  
+	void move(int32_t velocity);
 };
 
 #endif // _MOTOR_AC_H_

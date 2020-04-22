@@ -10,11 +10,14 @@
 
 #include "GenericMotor.h"
 
+
 // Class for use with an spinning disk as the physical GenericMotor
 //  to move the physical InputDevice.
 class MotorDisk: public GenericMotor {
   public:
-	void update();
+	MotorDisk(int pin);
+  
+	void move(int32_t velocity);
 };
 
 #endif // _MOTOR_DISK_H_

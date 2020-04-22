@@ -10,11 +10,14 @@
 
 #include "./GenericMotor.h"
 
+
 // Class for use with a stepper motor as the physical GenericMotor
 //  to move the physical InputDevice.
 class MotorCustom : public GenericMotor {
 public:
-	void update();
+	MotorCustom(int pin);
+
+	void move(int32_t velocity);
 };
 
 #endif // _MOTOR_CUSTOM_H_
